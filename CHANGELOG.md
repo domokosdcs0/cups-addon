@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.1] — 2026-05-17
+
+- Fix: remove hardcoded aarch64 default from BUILD_FROM ARG
+
 ## [1.2.0] — 2026-05-15
 
 - Fix printer list not persisting across container restarts: replace file-level
