@@ -1,12 +1,12 @@
 ---
 version: 1.3.0
 slug: cups
-name: CUPS Print Server (fork)
+name: CUPS Print Server
 description: CUPS print server for network printing
 url: https://github.com/rsaffi/cups-addon
 codenotary: rsaffi@rsaffi.com
 arch:
-  - arm64
+  - aarch64
   - amd64
 hassio_api: true
 host_network: true
