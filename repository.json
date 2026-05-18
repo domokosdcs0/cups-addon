@@ -1,5 +1,5 @@
 {
-  "name": "CUPS Add-on",
-  "url": "https://github.com/rsaffi/cups-addon",
-  "maintainer": "Ricardo Saffi Marques <rsaffi@rsaffi.com>"
+  "name": "CUPS Add-ons",
+  "url": "https://github.com/arest/cups-addon",
+  "maintainer": "Andrea Restello <andrea_restello@yahoo.it>"
 }
