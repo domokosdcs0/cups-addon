@@ -21,13 +21,17 @@ cat > /share/cups/config/cupsd.conf << 'EOL'
 # Listen on all interfaces
 Listen 0.0.0.0:631
 
-# Allow access from local network
+# Fix AirPrint missing name via Tailscale host headers
+ServerAlias *
+
+# Allow access from local network and Tailscale
 <Location />
   Order allow,deny
   Allow localhost
   Allow 10.0.0.0/8
   Allow 172.16.0.0/12
   Allow 192.168.0.0/16
+  Allow 100.64.0.0/10
 </Location>
 
 # Admin access (no authentication)
@@ -37,6 +41,7 @@ Listen 0.0.0.0:631
   Allow 10.0.0.0/8
   Allow 172.16.0.0/12
   Allow 192.168.0.0/16
+  Allow 100.64.0.0/10
 </Location>
 
 # Job management permissions
@@ -46,6 +51,7 @@ Listen 0.0.0.0:631
   Allow 10.0.0.0/8
   Allow 172.16.0.0/12
   Allow 192.168.0.0/16
+  Allow 100.64.0.0/10
 </Location>
 
 <Limit Send-Document Send-URI Hold-Job Release-Job Restart-Job Purge-Jobs Set-Job-Attributes Create-Job-Subscription Renew-Subscription Cancel-Subscription Get-Notifications Reprocess-Job Cancel-Current-Job Suspend-Current-Job Resume-Job Cancel-My-Jobs Close-Job CUPS-Move-Job CUPS-Get-Document>
@@ -54,7 +60,14 @@ Listen 0.0.0.0:631
   Allow 10.0.0.0/8
   Allow 172.16.0.0/12
   Allow 192.168.0.0/16
+  Allow 100.64.0.0/10
 </Limit>
+
+# Explicitly allow querying printers for AirPrint metadata
+<Location /printers>
+  Order allow,deny
+  Allow all
+</Location>
 
 # Enable web interface
 WebInterface Yes
