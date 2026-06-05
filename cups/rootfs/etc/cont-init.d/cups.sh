@@ -76,6 +76,22 @@ WebInterface Yes
 DefaultAuthType None
 JobSheets none,none
 PreserveJobHistory No
+
+# Allow remote access to the configuration files...
+<Location /admin/conf>
+  AuthType Default
+  Require user @SYSTEM
+  Order allow,deny
+  Allow all
+</Location>
+
+# Allow remote access to the log files...
+<Location /admin/log>
+  AuthType Default
+  Require user @SYSTEM
+  Order allow,deny
+  Allow all
+</Location>
 EOL
 
 # Migrate legacy data from /data/cups to /share/cups if present
