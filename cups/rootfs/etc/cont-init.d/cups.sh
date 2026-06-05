@@ -79,16 +79,16 @@ PreserveJobHistory No
 
 # Allow remote access to the configuration files...
 <Location /admin/conf>
-  AuthType Default
-  Require user @SYSTEM
+  AuthType Basic
+  Require valid-user
   Order allow,deny
   Allow all
 </Location>
 
 # Allow remote access to the log files...
 <Location /admin/log>
-  AuthType Default
-  Require user @SYSTEM
+  AuthType Basic
+  Require valid-user
   Order allow,deny
   Allow all
 </Location>
